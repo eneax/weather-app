@@ -32,7 +32,7 @@ class ZipCode extends React.Component {
           type='button'
           style={{margin: 10}}
           className='btn btn-success'
-          disabled={!this.state.zipcode}
+          // disabled={!this.state.zipcode}
         >
           Get Weather
         </button>
