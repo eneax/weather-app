@@ -39,3 +39,10 @@ body {
   color: #fff;
   font-weight: 100;
 }
+
+.zipcode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}

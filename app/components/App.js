@@ -10,9 +10,9 @@ class App extends React.Component {
           <h2 className='header'>Enter a City and State</h2>
           <ZipCode 
             direction='column'
+            zipcode={53043}
             onSubmitZipcode={function(){}}
             onUpdateZipcode={function(){}}
-            zipcode={53043}
           />
         </div>
       </div>
