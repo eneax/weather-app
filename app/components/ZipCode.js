@@ -30,7 +30,7 @@ class ZipCode extends React.Component {
         />
         <button
           type='button'
-          style={{margin: 10}}
+          style={{margin: '10px'}}
           className='btn btn-success'
           // disabled={!this.state.zipcode}
         >

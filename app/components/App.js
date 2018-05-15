@@ -5,7 +5,15 @@ class App extends React.Component {
   render() {
     return (
       <div className='container'>
-        <h1>Weather App</h1>
+        <div className='navbar'>
+          <h1>Weather App</h1>
+          <ZipCode 
+            direction='row'
+            zipcode={53043}
+            onSubmitZipcode={function(){}}
+            onUpdateZipcode={function(){}}
+          />
+        </div>
         <div className='home' style={{backgroundImage: "url('app/images/pattern.svg')"}}>
           <h2 className='header'>Enter a City and State</h2>
           <ZipCode 
