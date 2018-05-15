@@ -1,5 +1,6 @@
 var React = require('react');
 var PropTypes = require('prop-types');
+var api = require('../utils/api');
 
 class ZipCode extends React.Component {
   constructor(props) {
@@ -12,8 +13,21 @@ class ZipCode extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-  handleSubmit() {}
-  handleChange() {}
+  handleSubmit() {
+    api.getCurrentWeather(this.state.zipcode)
+      .then(function (response) {
+        console.log(response)
+      })
+  }
+  handleChange(event) {
+    var zip = event.target.value;
+    
+    this.setState(function () {
+      return {
+        zipcode: zip
+      }
+    })
+  }
   render() {
     return (
       <form 
