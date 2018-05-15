@@ -9,11 +9,11 @@ class ZipCode extends React.Component {
       zipcode: ''
     }
 
-    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
-  handleChange() {}
   handleSubmit() {}
+  handleChange() {}
   render() {
     return (
       <form 
