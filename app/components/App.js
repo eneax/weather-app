@@ -18,7 +18,12 @@ class App extends React.Component {
                 <ZipCode
                   direction='row'
                   zipcode={53043}
-                  onSubmitZipcode={function () { }}
+                  onSubmit={function (city) {
+                    props.history.push({
+                      pathname: 'forecast',
+                      search: '?city=' + city
+                    });
+                  }}
                 />
               </div>
             )
@@ -32,7 +37,12 @@ class App extends React.Component {
                   <ZipCode
                     direction='column'
                     zipcode={53043}
-                    onSubmitZipcode={function () { }}
+                    onSubmit={function (city) {
+                      props.history.push({
+                        pathname: 'forecast',
+                        search: '?city=' + city
+                      });
+                    }}
                   />
                 </div>
               )

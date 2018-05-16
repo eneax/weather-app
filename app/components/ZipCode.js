@@ -15,10 +15,17 @@ class ZipCode extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
   handleSubmit() {
-    api.getCurrentWeather(this.state.zipcode)
-      .then(function (response) {
-        console.log(response)
-      })
+    // api.getCurrentWeather(this.state.zipcode)
+    //   .then(function (response) {
+    //     console.log(response)
+    //   })
+    this.props.onSubmit(this.state.zipcode);
+
+    this.setState(function () {
+      return {
+        zipcode: ''
+      }
+    })
   }
   handleChange(event) {
     var zip = event.target.value;
@@ -30,11 +37,11 @@ class ZipCode extends React.Component {
     })
   }
   render() {
+    console.log('PROPS', this.props)
     return (
       <form 
         className='zipcode' 
         style={{flexDirection: this.props.direction}}
-        onSubmit={this.handleSubmit}
       >
         <input 
           className='input-control'
@@ -47,6 +54,7 @@ class ZipCode extends React.Component {
           type='button'
           style={{margin: '10px'}}
           className='btn btn-success'
+          onClick={this.handleSubmit}
           // disabled={!this.state.zipcode}
         >
           Get Weather
