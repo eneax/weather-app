@@ -3,6 +3,7 @@ var ZipCode = require('./ZipCode');
 var ReactRouter = require('react-router-dom');
 var Router = ReactRouter.BrowserRouter;
 var Route = ReactRouter.Route;
+var Forecast = require('./Forecast');
 
 class App extends React.Component {
   render() {
@@ -34,6 +35,8 @@ class App extends React.Component {
               </div>
             )
           }}/>
+
+          <Route path='/forecast' component={Forecast}/>
         </div>
       </Router>
     )
