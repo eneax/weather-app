@@ -3,6 +3,7 @@ var ZipCode = require('./ZipCode');
 var ReactRouter = require('react-router-dom');
 var Router = ReactRouter.BrowserRouter;
 var Route = ReactRouter.Route;
+var Switch = ReactRouter.Switch;
 var Forecast = require('./Forecast');
 
 class App extends React.Component {
@@ -23,20 +24,25 @@ class App extends React.Component {
             )
           }} />
 
-          <Route exact path='/' render={ function (props) {
-            return (
-              <div className='home' style={{ backgroundImage: "url('app/images/pattern.svg')" }}>
-                <h2 className='header'>Enter a City and State</h2>
-                <ZipCode
-                  direction='column'
-                  zipcode={53043}
-                  onSubmitZipcode={function () { }}
-                />
-              </div>
-            )
-          }}/>
+          <Switch>
+            <Route exact path='/' render={ function (props) {
+              return (
+                <div className='home' style={{ backgroundImage: "url('app/images/pattern.svg')" }}>
+                  <h2 className='header'>Enter a City and State</h2>
+                  <ZipCode
+                    direction='column'
+                    zipcode={53043}
+                    onSubmitZipcode={function () { }}
+                  />
+                </div>
+              )
+            }}/>
 
-          <Route path='/forecast' component={Forecast}/>
+            <Route path='/forecast' component={Forecast}/>
+            <Route render={ function () {
+              return <p>Not Found</p>
+            }} />
+          </Switch>
         </div>
       </Router>
     )
