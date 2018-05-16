@@ -4,10 +4,10 @@ var _baseURL = 'http://api.openweathermap.org/data/2.5/';
 var _APIKEY = 'b714ec74bbab5650795063cb0fdf5fbe'
 
 function prepRouteParams (queryStringData) {
-  return Object.keys(queryStringData)
+  return Object.keys(queryStringData)                                 // ["q", "type", "APPID", "cnt"]
     .map(function (key) {
-      return key + '=' + encodeURIComponent(queryStringData[key]);
-    }).join('&')
+      return key + '=' + encodeURIComponent(queryStringData[key]);    // ["q=London", "type=accurate", "APPID=b714ec74bbab5650795063cb0fdf5fbe", "cnt=5"]
+    }).join('&')                                                      // "q=London&type=accurate&APPID=b714ec74bbab5650795063cb0fdf5fbe&cnt=5"
 }
 
 function prepUrl (type, queryStringData) {
