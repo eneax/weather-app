@@ -1,6 +1,5 @@
 var React = require('react');
 var PropTypes = require('prop-types');
-var api = require('../utils/api');
 var ReactRouter = require('react-router-dom');
 
 class ZipCode extends React.Component {
@@ -15,10 +14,6 @@ class ZipCode extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
   handleSubmit() {
-    // api.getCurrentWeather(this.state.zipcode)
-    //   .then(function (response) {
-    //     console.log(response)
-    //   })
     this.props.onSubmit(this.state.zipcode);
 
     this.setState(function () {
@@ -37,7 +32,6 @@ class ZipCode extends React.Component {
     })
   }
   render() {
-    console.log('PROPS', this.props)
     return (
       <form 
         className='zipcode' 
@@ -55,7 +49,7 @@ class ZipCode extends React.Component {
           style={{margin: '10px'}}
           className='btn btn-success'
           onClick={this.handleSubmit}
-          // disabled={!this.state.zipcode}
+          disabled={!this.state.zipcode}
         >
           Get Weather
         </button>
