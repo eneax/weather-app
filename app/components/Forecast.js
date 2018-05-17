@@ -10,7 +10,7 @@ function DayItem (props) {
   var date = getUniqueDate(props.day.dt);         // props.day = listItem
   
   return (
-    <div className='dayContainer'>
+    <div onClick={props.onClick} className='dayContainer'>
       <img className='weather' src={'./app/images/weather-icons/' + icon + '.svg'} alt='Weather' />
       <h2 className='subheader'>{date}</h2>
     </div>
@@ -27,14 +27,15 @@ class Forecast extends React.Component {
     }
 
     this.makeRequest = this.makeRequest.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
-  componentDidMount () {
-    var city = queryString.parse(this.props.location.search).city;      // "?city=Chiusi, Italy"
-    this.makeRequest(city);
+  componentDidMount() {
+    this.city = queryString.parse(this.props.location.search).city;      // "?city=Chiusi, Italy"
+    this.makeRequest(this.city);
   }
   componentWillReceiveProps(nextProps) {
-    var city = queryString.parse(nextProps.location.search).city;
-    this.makeRequest(city);
+    this.city = queryString.parse(nextProps.location.search).city;
+    this.makeRequest(this.city);
   }
   makeRequest(city) {
     this.setState(function() {
@@ -53,6 +54,12 @@ class Forecast extends React.Component {
         })
       }.bind(this))
   }
+  handleClick(city) {
+    this.props.history.push({
+      pathname: '/details/' + this.city,
+      state: city,
+    })
+  }
   render() {
     return (
       this.state.loading === true
@@ -61,8 +68,14 @@ class Forecast extends React.Component {
             <h1 className='forecast-header'>{this.city}</h1>
             <div className='forecast-container'>
               {this.state.forecastData.list.map(function (listItem) {
-                return <DayItem key={listItem.dt} day={listItem} />
-              })}
+                return (
+                  <DayItem 
+                    key={listItem.dt} 
+                    day={listItem} 
+                    onClick={this.handleClick.bind(this, listItem)} 
+                  />
+                )
+              }.bind(this))}
             </div>
           </div>
     )
