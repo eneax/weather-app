@@ -2,12 +2,12 @@ var React = require('react');
 var api = require('../utils/api');
 var queryString = require('query-string');
 var utils = require('../utils/helpers');
-var getDate = utils.getDate;
+var getUniqueDate = utils.getUniqueDate;
 var convertTemp = utils.convertTemp;
 
 function DayItem (props) {
-  var date = getDate(props.day.dt);
   var icon = props.day.weather[0].icon;
+  var date = getUniqueDate(props.day.dt);         // props.day = listItem
   
   return (
     <div className='dayContainer'>
@@ -71,6 +71,10 @@ class Forecast extends React.Component {
 
 module.exports = Forecast;
 
+/*
+componentWillReceiveProps()
+componentWillReceiveProps is required if you want to update the state values with new props values, 
+this method will get called whenever any change happens to props values.
+*/ 
 
-// componentWillReceiveProps is required if you want to update the state values with new props values, 
-// this method will get called whenever any change happens to props values.
+// dt ==> Time of data calculation, unix, UTC 

@@ -24,11 +24,12 @@ var monthsMap = {
 };
 
 function convertTemp (kelvin) {
-  return (kelvin - 273.15)* 1.8000 + 32.00
+  return (kelvin - 273.15)* 1.8000 + 32.00    // Kelvin to Fahrenheit formula
+  // return (kelvin - 273.15)                    // Kelvin to Celsius formula
 }
 
-function getDate (unixTimestmap) {
-  var date = new Date(unixTimestmap * 1000);
+function getUniqueDate (unixTimestamp) {
+  var date = new Date(unixTimestamp * 1000);
   var day = daysMap[date.getDay()]
   var month = monthsMap[date.getMonth()] + ' ' + date.getDate();
   return day + ', ' + month;
@@ -36,5 +37,29 @@ function getDate (unixTimestmap) {
 
 module.exports = {
   convertTemp: convertTemp,
-  getDate: getDate
+  getUniqueDate: getUniqueDate
 }
+
+/*
+var date = new Date(unixTimestamp * 1000);
+
+You have to multiply by 1000 as JavaScript counts in milliseconds,
+since epoch (which is 01/01/1970)
+*/
+
+/*
+getDay()
+returns the day of the week for the specified date according to local time, 
+where 0 represents Sunday
+*/
+
+/*
+getMonth() 
+returns the month in the specified date according to local time, 
+as a zero-based value (where zero indicates the first month of the year)
+*/
+
+/*
+getDate() 
+returns the day of the month for the specified date according to local time.
+*/ 
