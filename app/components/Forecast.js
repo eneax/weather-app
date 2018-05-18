@@ -42,6 +42,7 @@ class Forecast extends React.Component {
       }.bind(this))
   }
   handleClick(city) {
+    city.city = this.city;
     this.props.history.push({
       pathname: '/details/' + this.city,
       state: city,
