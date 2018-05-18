@@ -5,7 +5,6 @@ var convertTemp = utils.convertTemp;
 
 class Detail extends React.Component {
   render() {
-    console.log(this.props);
     var props = this.props.location.state;
     return (
       <div>
