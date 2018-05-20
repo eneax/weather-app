@@ -33,7 +33,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path='/' render={ function (props) {
               return (
-                <div className='home' style={{ backgroundImage: "url('app/images/pattern.svg')" }}>
+                <div className='home'>
                   <h2 className='header'>Enter a City and State</h2>
                   <ZipCode
                     direction='column'
