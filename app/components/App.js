@@ -1,78 +1,33 @@
-var React = require('react');
-var ZipCode = require('./ZipCode');
-var ReactRouter = require('react-router-dom');
-var Router = ReactRouter.BrowserRouter;
-var Route = ReactRouter.Route;
-var Switch = ReactRouter.Switch;
-var Link = ReactRouter.Link;
-var Forecast = require('./Forecast');
-var Detail = require('./Detail');
-import tachyons from 'tachyons';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './Home';
+import CurrentForecast from './CurrentForecast';
+import FiveDay from './FiveDay';
+import Header from './Header';
 
-class App extends React.Component {
-  render() {
-    return (
-      <Router>
-        <div className='container'>
-          <Route render={ function (props) {
+const App = (props) => {
+  return (
+    <Router>
+      <div>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/forecast" component={CurrentForecast} />
+          <Route path="/forecast/:location/five-day" component={FiveDay} />
+          <Route render={() => {
             return (
-              <div className="bg-white black-80 tc pt3 pb2">
-                <Link className='black' exact="true" to='/'>
-                  <i className="far fa-sun fa-3x fa-pulse"></i>
-                </Link> 
-                <div className="center">
-                  <ZipCode
-                    direction='column'
-                    zipcode={53043}
-                    onSubmit={function (city) {
-                      props.history.push({
-                        pathname: 'forecast',
-                        search: '?city=' + city
-                      });
-                    }}
-                  />
-                </div>
+              <div className="four-o-four">
+                <h1>404</h1>
+                <h3>Page not found...</h3>
               </div>
             )
           }} />
-
-          <Switch>
-            <Route exact path='/' render={ function (props) {
-              return (
-                <div className="bg-white black-80 tc pt3 pb2">
-                <Link className='black' exact="true" to='/'>
-                  <i className="far fa-sun fa-3x fa-pulse"></i>
-                </Link> 
-                <div className="center">
-                  <ZipCode
-                    direction='column'
-                    zipcode={53043}
-                    onSubmit={function (city) {
-                      props.history.push({
-                        pathname: 'forecast',
-                        search: '?city=' + city
-                      });
-                    }}
-                  />
-                </div>
-              </div>
-              )
-            }}/>
-
-            <Route path='/forecast' component={Forecast} />
-            <Route path='/details/:city' component={Detail} />
-            <Route render={ function () {
-              return <p>Not Found</p>
-            }} />
-          </Switch>
-        </div>
-      </Router>
-    )
-  }
+        </Switch>
+      </div>
+    </Router>
+  )
 }
-
 module.exports = App;
-
 
 
 
