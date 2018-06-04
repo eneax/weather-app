@@ -39,8 +39,11 @@ class App extends React.Component {
           <Switch>
             <Route exact path='/' render={ function (props) {
               return (
-                <div className='home'>
-                  <h2 className='header'>Enter a City and State</h2>
+                <div className="bg-white black-80 tc pt3 pb2">
+                <Link className='black' exact="true" to='/'>
+                  <i className="far fa-sun fa-3x fa-pulse"></i>
+                </Link> 
+                <div className="center">
                   <ZipCode
                     direction='column'
                     zipcode={53043}
@@ -52,6 +55,7 @@ class App extends React.Component {
                     }}
                   />
                 </div>
+              </div>
               )
             }}/>
 
