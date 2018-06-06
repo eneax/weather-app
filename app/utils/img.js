@@ -17,7 +17,7 @@ import thirteenN from '../images/weather-icons/13n.svg';
 import fiftyD from '../images/weather-icons/50d.svg';
 import fiftyN from '../images/weather-icons/50n.svg';
 
-module.exports = {
+export default {
   "01d": oneD,
   "01n": oneN,
   "02d": twoD,
