@@ -1,3 +1,4 @@
+/* GENERAL */
 body {
   font-family: -apple-system, 
                BlinkMacSystemFont, 
@@ -10,6 +11,12 @@ body {
                sans-serif;
 }
 
+/* NAVBAR */
+@media (max-width: 320px) {
+  nav.navbar { margin-bottom: 1.5rem!important; }
+}
+
+/* HOME */
 .cover-container { 
   max-width: 42em;
   text-align: center;
@@ -17,7 +24,18 @@ body {
 @media (max-width: 425px) {
   .cover-container { text-align: justify; }
 }
+@media (min-width: 768px) {
+  .cover-container { padding-top: 5rem; }
+}
+@media (min-width: 992px) {
+  .cover-container { padding-top: 8rem; }
+}
+
 .cover { padding: 0 1.5rem; }
+
+@media (max-width: 320px) {
+  .cover-heading { font-size: 2rem; }
+}
 
 @media (max-width: 425px) {
   .input-submit {text-align: center}
