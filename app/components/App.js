@@ -6,7 +6,7 @@ import CurrentWeather from './CurrentWeather';
 import FutureForecast from './FutureForecast';
 import NoMatch from './NoMatch';
 
-const App = (props) => {
+const App = () => {
   return (
     <Router>
       <div>
@@ -14,7 +14,7 @@ const App = (props) => {
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/forecast' component={CurrentWeather} />
-          <Route path='/forecast/:location/five-day' component={FutureForecast} />
+          <Route path='/forecast/:location/forecast-five' component={FutureForecast} />
           <Route component={NoMatch} />
         </Switch>
       </div>
