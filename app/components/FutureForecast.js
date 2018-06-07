@@ -11,7 +11,7 @@ const OneDayForecast = (props) => {
   return (
     <tr>
       <th scope='row'>
-        <img style={{ height: '30px', width: '30px' }} src={img[props.data.weather[0].icon]} alt='' />
+        <img style={{ height: '50px', width: '50px' }} src={img[props.data.weather[0].icon]} alt='' />
       </th>
       <td>
         {new Date(props.data.dt * 1000).toString().split(' ').slice(0, 5).join(' ')}
