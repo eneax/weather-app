@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const token = 'b714ec74bbab5650795063cb0fdf5fbe';
+const key = 'b714ec74bbab5650795063cb0fdf5fbe';
 
 const getLocation = props => {
   let arr = props.history.location.search.split('&');
@@ -14,7 +14,7 @@ const getLocation = props => {
 }
 
 const getCurrentWeather = (city, region, type) => {
-  return axios.get('https://api.openweathermap.org/data/2.5/' + type + '?q=' + city + ',' + region + '&units=metric&mode=json&appid=' + token)
+  return axios.get(`https://api.openweathermap.org/data/2.5/${type}?q=${city},${region}&units=metric&mode=json&appid=${key}`)
 }
 
 export default {

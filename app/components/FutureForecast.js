@@ -53,17 +53,17 @@ const FiveDayForecast = (props) => {
         {props.data.city.name}
       </h1>
       <div className='table-responsive'>
-        <table className="table mx-auto">
-          <thead className="thead-dark text-center">
+        <table className='table mx-auto'>
+          <thead className='thead-dark text-center'>
             <tr>
-              <th scope="col"></th>
-              <th scope="col">Day</th>
-              <th scope="col">Description</th>
-              <th scope="col">Temperature</th>
-              <th scope="col">Humidity</th>
-              <th scope="col">Clouds</th>
-              <th scope="col">Rain</th>
-              <th scope="col">Snow</th>
+              <th scope='col'></th>
+              <th scope='col'>Day</th>
+              <th scope='col'>Description</th>
+              <th scope='col'>Temperature</th>
+              <th scope='col'>Humidity</th>
+              <th scope='col'>Clouds</th>
+              <th scope='col'>Rain</th>
+              <th scope='col'>Snow</th>
             </tr>
           </thead>
           <tbody className='text-center'>
@@ -89,7 +89,7 @@ class FutureForecast extends React.Component {
   componentDidMount() {
     let { currentCity, currentRegion } = api.getLocationFutureForecast(this.props);
 
-    api.currentWeather(currentCity, currentRegion, "forecast")
+    api.currentWeather(currentCity, currentRegion, 'forecast')
       .then(res => {
         this.setState(() => {
           return {
@@ -109,7 +109,7 @@ class FutureForecast extends React.Component {
       )
     } else {
       return (
-        <div className="container">
+        <div className='container'>
           <FiveDayForecast data={this.state.weatherData} />
           <Extra data={this.state.weatherData}>
             <Link to={{

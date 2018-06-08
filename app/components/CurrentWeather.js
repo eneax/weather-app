@@ -178,7 +178,7 @@ class CurrentWeather extends React.Component {
             <h1 className='cover-heading text-center'>
               We are not able to find this location, please make sure you have written it correctly! 
               <br/> 
-              <i className="far fa-smile"></i>
+              <i className='far fa-smile'></i>
             </h1>
           </main>
         </div>

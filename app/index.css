@@ -79,11 +79,8 @@ button.material:active {
   .btn-submit { width: 100%; }
 }
 
-
 /* CURRENT WEATHER */
-a.current-weather {
-  color: #212529;
-}
+a.current-weather { color: #212529; }
 a.current-weather:hover {
   color: #212529;
   text-decoration: none;
