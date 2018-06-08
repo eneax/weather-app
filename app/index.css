@@ -37,13 +37,6 @@ body {
   .cover-heading { font-size: 2rem; }
 }
 
-@media (min-width: 992px) {
-  .table-container {
-    width: 75%;
-    margin: 0 auto;
-  }
-}
-
 /* SEARCH */
 input.form-control:focus {
   outline: none;
@@ -84,4 +77,21 @@ button.material:active {
 @media (max-width: 425px) {
   .input-submit {text-align: center}
   .btn-submit { width: 100%; }
+}
+
+
+/* CURRENT WEATHER */
+a.current-weather {
+  color: #212529;
+}
+a.current-weather:hover {
+  color: #212529;
+  text-decoration: none;
+}
+
+@media (min-width: 992px) {
+  .table-container {
+    width: 75%;
+    margin: 0 auto;
+  }
 }

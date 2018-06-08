@@ -6,18 +6,23 @@ import img from '../utils/img';
 import Extra from './Extra';
 import Loading from './Loading';
 
-
 const DisplayCurrentWeather = (props) => {
   let sunrise = new Date(props.data.sys.sunrise * 1000).toString().split(' ').slice(4, 5);
   let sunset = new Date(props.data.sys.sunset * 1000).toString().split(' ').slice(4, 5);
   
   return (
     <div className='text-center table-container'>
-      <Link to={{
-        pathname: `/forecast/${props.data.name}/forecast-five`,
-        search: `?city=${props.data.name}&region=${props.data.sys.country.toLowerCase()}`
-      }}>
-        <h1><img src={img[props.data.weather[0].icon]} alt='' /> {props.data.name}</h1>
+      <Link 
+        className='current-weather'
+        to={{
+          pathname: `/forecast/${props.data.name}/forecast-five`,
+          search: `?city=${props.data.name}&region=${props.data.sys.country.toLowerCase()}`
+        }}
+      >
+        <h1>
+          <img className='logo-img' src={img[props.data.weather[0].icon]} alt={`${props.data.name} Weather Icon`} /> 
+          <span>{props.data.name}</span>
+        </h1>
       </Link>
 
       <p className='data'>
