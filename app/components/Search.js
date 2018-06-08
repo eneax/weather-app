@@ -56,11 +56,11 @@ class Search extends React.Component {
         <form className='form-inline' onSubmit={this.splitLocation}>
           <input 
             onChange={this.handleChange}
-            className='input-submit form-control mr-sm-2' 
+            className='material input-submit form-control mr-sm-2' 
             type='search' placeholder='Your city name' 
             aria-label='Your city name'
           />
-          <button className='btn-submit btn btn-outline-success my-2 my-sm-0' type='submit'>Search</button>
+          <button className='material btn-submit btn my-2 my-sm-0' type='submit'>Search</button>
         </form>
         
         { (this.state.city !== '' && this.state.region !== '') &&
