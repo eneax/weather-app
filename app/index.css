@@ -95,3 +95,14 @@ a.current-weather:hover {
     margin: 0 auto;
   }
 }
+
+/* EXTRA */
+th a {
+  color: #212529;
+  text-decoration: underline;
+  transition: all .5s;
+}
+th a:hover {
+  color: #212529;
+  text-decoration: none;
+}

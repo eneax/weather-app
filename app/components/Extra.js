@@ -16,7 +16,7 @@ const Extra = (props) => {
         <tr>
           <th scope='row'>
             <Link to='/'>
-              return to home screen
+              Back to home screen
             </Link>
           </th>
         </tr>
