@@ -173,9 +173,14 @@ class CurrentWeather extends React.Component {
   render() {
     if (this.state.invalidLocation) {
       return (
-        <div>
-          <h1>We are not able to find this location, please try again!</h1>
-          <p>Make sure you have written it correctly! :-)</p>
+        <div className='cover-container d-flex w-100 h-100 mx-auto flex-column'>
+          <main role='main' className='cover inner'>
+            <h1 className='cover-heading text-center'>
+              We are not able to find this location, please make sure you have written it correctly! 
+              <br/> 
+              <i className="far fa-smile"></i>
+            </h1>
+          </main>
         </div>
       )
     } else if (this.state.weatherData !== '') {
